@@ -1,8 +1,10 @@
 package github.io.iamhariommaurya.ecart.authService.controller;
 
 import github.io.iamhariommaurya.ecart.authService.model.LoginRequest;
+import github.io.iamhariommaurya.ecart.authService.model.LoginResponse;
 import github.io.iamhariommaurya.ecart.authService.model.SignUpRequest;
 import github.io.iamhariommaurya.ecart.authService.model.SignupResponse;
+import github.io.iamhariommaurya.ecart.authService.service.ILoginService;
 import github.io.iamhariommaurya.ecart.authService.service.ISignupService;
 import lombok.RequiredArgsConstructor;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -17,10 +19,12 @@ import org.springframework.web.bind.annotation.RestController;
 public class AuthController {
     @Autowired
     private  ISignupService signupService;
+    @Autowired
+    private ILoginService loginService;
     @PostMapping(value = "login")
-    public String login(@RequestBody LoginRequest loginRequest){
+    public ResponseEntity<LoginResponse> login(@RequestBody LoginRequest loginRequest){
         System.out.println(loginRequest.toString());
-        return "Login Successfully!!";
+        return ResponseEntity.ok(loginService.validateLogin(loginRequest));
     }
 
     @PostMapping(value = "singup")

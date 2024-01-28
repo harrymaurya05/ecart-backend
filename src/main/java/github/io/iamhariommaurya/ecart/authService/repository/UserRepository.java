@@ -4,5 +4,8 @@ package github.io.iamhariommaurya.ecart.authService.repository;
 import github.io.iamhariommaurya.ecart.authService.entity.User;
 import org.springframework.data.jpa.repository.JpaRepository;
 
-public interface SignupRepository extends JpaRepository<User,Long> {
+import java.util.Optional;
+
+public interface UserRepository extends JpaRepository<User,Long> {
+        Optional<User> findByUsernameAndPassword(String username, String password);
 }
