@@ -27,7 +27,7 @@ public class AuthController {
         return ResponseEntity.ok(loginService.validateLogin(loginRequest));
     }
 
-    @PostMapping(value = "singup")
+    @PostMapping(value = "singin")
     public ResponseEntity<SignupResponse> singUp(@RequestBody SignUpRequest signUpRequest){
 
         System.out.println("store database in DB : "+signUpRequest);
