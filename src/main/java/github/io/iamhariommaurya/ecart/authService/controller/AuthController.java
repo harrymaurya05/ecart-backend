@@ -6,6 +6,7 @@ import github.io.iamhariommaurya.ecart.authService.model.SignUpRequest;
 import github.io.iamhariommaurya.ecart.authService.model.SignupResponse;
 import github.io.iamhariommaurya.ecart.authService.service.ILoginService;
 import github.io.iamhariommaurya.ecart.authService.service.ISignupService;
+import github.io.iamhariommaurya.ecart.utility.models.ServiceResponse;
 import lombok.RequiredArgsConstructor;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.ResponseEntity;
@@ -20,8 +21,8 @@ public class AuthController {
     private ILoginService loginService;
 
     @GetMapping(value = "/testing")
-    public ResponseEntity<String> testing(){
-        return ResponseEntity.ok("Hello World");
+    public ResponseEntity<ServiceResponse> testing(){
+        return ResponseEntity.ok(ServiceResponse.builder().code("200").message("Hello world!!").build());
     }
     @PostMapping(value = "login")
     public ResponseEntity<LoginResponse> login(@RequestBody LoginRequest loginRequest){
