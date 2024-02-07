@@ -20,7 +20,7 @@ public class AuthController {
     @Autowired
     private ILoginService loginService;
 
-    @GetMapping(value = "/testing")
+    @GetMapping(value = "/test")
     public ResponseEntity<ServiceResponse> testing(){
         return ResponseEntity.ok(ServiceResponse.builder().code("200").message("Hello world!!").build());
     }
