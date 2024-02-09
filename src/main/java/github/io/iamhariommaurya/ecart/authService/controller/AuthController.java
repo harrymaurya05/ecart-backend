@@ -20,19 +20,14 @@ public class AuthController {
     @Autowired
     private ILoginService loginService;
 
-    @GetMapping(value = "/testing")
-    public ResponseEntity<ServiceResponse> testing(){
-        return ResponseEntity.ok(ServiceResponse.builder().code("200").message("Hello world!!").build());
-    }
     @PostMapping(value = "login")
     public ResponseEntity<LoginResponse> login(@RequestBody LoginRequest loginRequest){
         System.out.println(loginRequest.toString());
         return ResponseEntity.ok(loginService.validateLogin(loginRequest));
     }
 
-    @PostMapping(value = "singin")
+    @PostMapping(value = "singup")
     public ResponseEntity<SignupResponse> singUp(@RequestBody SignUpRequest signUpRequest){
-
         System.out.println("storing database in DB : "+signUpRequest);
         return ResponseEntity.ok(signupService.addUser(signUpRequest));
     }
