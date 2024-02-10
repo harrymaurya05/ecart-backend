@@ -1,6 +1,8 @@
 package github.io.iamhariommaurya.ecart.authService.entity;
 import jakarta.persistence.*;
 import lombok.*;
+
+
 @Data
 @Builder
 @NoArgsConstructor
