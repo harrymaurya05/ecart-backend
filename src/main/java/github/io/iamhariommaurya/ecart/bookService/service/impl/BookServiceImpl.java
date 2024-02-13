@@ -4,7 +4,6 @@ package github.io.iamhariommaurya.ecart.bookService.service.impl;
 import github.io.iamhariommaurya.ecart.bookService.model.Book;
 import github.io.iamhariommaurya.ecart.bookService.repository.BookRepository;
 import github.io.iamhariommaurya.ecart.bookService.service.BookService;
-import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 import java.util.List;
