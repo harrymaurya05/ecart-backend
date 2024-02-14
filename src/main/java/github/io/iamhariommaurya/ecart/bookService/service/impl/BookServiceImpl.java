@@ -54,7 +54,7 @@ public class BookServiceImpl implements BookService {
     public String deleteBookByid(long id) {
         if(bookRepository.findById(id).isPresent()){
             bookRepository.deleteById(id);
-            return "Book Deleted Successfully!!";
+            return "Book Moved Successfully!!";
         }
         return "Invalid Book Id!!";
     }
