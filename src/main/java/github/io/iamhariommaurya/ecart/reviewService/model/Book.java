@@ -1,4 +1,4 @@
-package github.io.iamhariommaurya.ecart.bookService.model;
+package github.io.iamhariommaurya.ecart.reviewService.model;
 
 import jakarta.persistence.Entity;
 import jakarta.persistence.GeneratedValue;

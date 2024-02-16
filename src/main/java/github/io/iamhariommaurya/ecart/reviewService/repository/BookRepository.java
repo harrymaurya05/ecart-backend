@@ -1,8 +1,7 @@
-package github.io.iamhariommaurya.ecart.bookService.repository;
+package github.io.iamhariommaurya.ecart.reviewService.repository;
 
-import github.io.iamhariommaurya.ecart.bookService.model.Book;
+import github.io.iamhariommaurya.ecart.reviewService.model.Book;
 import org.springframework.data.jpa.repository.JpaRepository;
-import org.springframework.data.repository.CrudRepository;
 import org.springframework.stereotype.Repository;
 
 @Repository

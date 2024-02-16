@@ -1,4 +1,4 @@
-package github.io.iamhariommaurya.ecart.bookService.model;
+package github.io.iamhariommaurya.ecart.autherService.model;
 
 import jakarta.persistence.Entity;
 import jakarta.persistence.GeneratedValue;
@@ -14,18 +14,18 @@ import lombok.ToString;
 @AllArgsConstructor
 @ToString
 @Entity
-public class Book {
+public class Author {
     @Id
     @GeneratedValue(strategy = GenerationType.AUTO)
     private long id;
     private String name;
     private float price;
 
-    public long getId() {
+    public long id() {
         return id;
     }
 
-    public Book setId(long id) {
+    public Author setId(long id) {
         this.id = id;
         return this;
     }
@@ -34,7 +34,7 @@ public class Book {
         return name;
     }
 
-    public Book setName(String name) {
+    public Author setName(String name) {
         this.name = name;
         return this;
     }
@@ -43,7 +43,7 @@ public class Book {
         return price;
     }
 
-    public Book setPrice(float price) {
+    public Author setPrice(float price) {
         this.price = price;
         return this;
     }
