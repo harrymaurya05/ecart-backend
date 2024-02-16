@@ -12,31 +12,31 @@ import java.util.Optional;
 
 @Service
 public class AuthorServiceImpl implements AuthorService {
-    private AuthorRepository bookRepository;
+    private AuthorRepository authorRepository;
 
     public AuthorServiceImpl(AuthorRepository bookRepository) {
-        this.bookRepository = bookRepository;
+        this.authorRepository = bookRepository;
     }
 
     @Override
     public Author save(Author book) {
-        return bookRepository.save(book);
+        return authorRepository.save(book);
     }
 
     @Override
     public List<Author> getAllBooks() {
-        return bookRepository.findAll();
+        return authorRepository.findAll();
     }
 
     @Override
     public Author getBookByid(long id) {
-        Optional<Author> book = bookRepository.findById(id);
+        Optional<Author> book = authorRepository.findById(id);
         return book.orElse(null);
     }
 
     @Override
     public Author updateBookById(long id, Author author) {
-        Optional<Author> book1 = bookRepository.findById(id);
+        Optional<Author> book1 = authorRepository.findById(id);
         if(book1.isPresent()){
             Author originalAuthor= book1.get();
             if(Objects.nonNull(author.getName()) && !"".equalsIgnoreCase(author.getName())){
@@ -45,15 +45,15 @@ public class AuthorServiceImpl implements AuthorService {
             if(Objects.nonNull(author.getPrice()) && author.getPrice() > 0){
                 originalAuthor.setPrice(author.getPrice());
             }
-            return bookRepository.save(originalAuthor);
+            return authorRepository.save(originalAuthor);
         }
         return null;
     }
 
     @Override
     public String deleteBookByid(long id) {
-        if(bookRepository.findById(id).isPresent()){
-            bookRepository.deleteById(id);
+        if(authorRepository.findById(id).isPresent()){
+            authorRepository.deleteById(id);
             return "Book Moved Successfully!!";
         }
         return "Invalid Book Id!!";

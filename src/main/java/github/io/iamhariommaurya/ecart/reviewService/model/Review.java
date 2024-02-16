@@ -14,7 +14,7 @@ import lombok.ToString;
 @AllArgsConstructor
 @ToString
 @Entity
-public class Book {
+public class Review {
     @Id
     @GeneratedValue(strategy = GenerationType.AUTO)
     private long id;
@@ -25,7 +25,7 @@ public class Book {
         return id;
     }
 
-    public Book setId(long id) {
+    public Review setId(long id) {
         this.id = id;
         return this;
     }
@@ -34,7 +34,7 @@ public class Book {
         return name;
     }
 
-    public Book setName(String name) {
+    public Review setName(String name) {
         this.name = name;
         return this;
     }
@@ -43,7 +43,7 @@ public class Book {
         return price;
     }
 
-    public Book setPrice(float price) {
+    public Review setPrice(float price) {
         this.price = price;
         return this;
     }

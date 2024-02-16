@@ -14,10 +14,6 @@ public class SignupServiceImpl implements ISignupService {
     UserRepository signupRepository;
     @Override
     public SignupResponse addUser(SignUpRequest signUpRequest) {
-        signupRepository.save(User.builder().username(signUpRequest.getUsername())
-                .password(signUpRequest.getPassword())
-                .email(signUpRequest.getEmail())
-                .build());
-        return SignupResponse.builder().code("200").message("Saved").build();
+        return null;
     }
 }

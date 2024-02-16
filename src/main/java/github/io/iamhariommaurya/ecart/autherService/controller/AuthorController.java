@@ -9,33 +9,33 @@ import org.springframework.web.bind.annotation.*;
 import java.util.List;
 
 @RestController
-@RequestMapping(value = "/v1/book")
+@RequestMapping(value = "/v1/author")
 public class AuthorController {
     @Autowired
-    AuthorService bookService;
+    AuthorService authorService;
     //Add Book
     @PostMapping
     public ResponseEntity<Author> saveBook(@RequestBody Author book){
-        return ResponseEntity.ok(bookService.save(book));
+        return ResponseEntity.ok(authorService.save(book));
     }
     //Get Books
     @GetMapping
     public ResponseEntity<List<Author>> getBooks(){
-        return ResponseEntity.ok(bookService.getAllBooks());
+        return ResponseEntity.ok(authorService.getAllBooks());
     }
     //Get Book by id
     @GetMapping(value = "/{id}")
     public ResponseEntity<Author> getBookById(@PathVariable("id") long id){
-        return ResponseEntity.ok(bookService.getBookByid(id));
+        return ResponseEntity.ok(authorService.getBookByid(id));
     }
     //Update Book
     @PutMapping(value = "/{id}")
     public ResponseEntity<Author> updateBook(@PathVariable("id") long id, @RequestBody Author book){
-        return ResponseEntity.ok(bookService.updateBookById(id,book));
+        return ResponseEntity.ok(authorService.updateBookById(id,book));
     }
     //Delete Book
     @DeleteMapping(value = "/{id}")
     public ResponseEntity<String> deleteBookById(@PathVariable("id") long id){
-        return ResponseEntity.ok(bookService.deleteBookByid(id));
+        return ResponseEntity.ok(authorService.deleteBookByid(id));
     }
 }
