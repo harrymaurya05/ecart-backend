@@ -54,8 +54,8 @@ public class ReviewServiceImpl implements ReviewService {
     public String deleteBookByid(long id) {
         if(reviewRepository.findById(id).isPresent()){
             reviewRepository.deleteById(id);
-            return "Book Moved Successfully!!";
+            return "Review Moved Successfully!!";
         }
-        return "Invalid Book Id!!";
+        return "Invalid Review Id!!";
     }
 }

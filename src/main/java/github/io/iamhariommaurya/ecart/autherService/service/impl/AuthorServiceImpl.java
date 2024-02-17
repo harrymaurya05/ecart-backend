@@ -54,8 +54,8 @@ public class AuthorServiceImpl implements AuthorService {
     public String deleteBookByid(long id) {
         if(authorRepository.findById(id).isPresent()){
             authorRepository.deleteById(id);
-            return "Book Moved Successfully!!";
+            return "Author Moved Successfully!!";
         }
-        return "Invalid Book Id!!";
+        return "Invalid Author Id!!";
     }
 }
