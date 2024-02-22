@@ -20,31 +20,4 @@ public class Author {
     private long id;
     private String name;
     private float price;
-
-    public long id() {
-        return id;
-    }
-
-    public Author setId(long id) {
-        this.id = id;
-        return this;
-    }
-
-    public String getName() {
-        return name;
-    }
-
-    public Author setName(String name) {
-        this.name = name;
-        return this;
-    }
-
-    public float getPrice() {
-        return price;
-    }
-
-    public Author setPrice(float price) {
-        this.price = price;
-        return this;
-    }
 }

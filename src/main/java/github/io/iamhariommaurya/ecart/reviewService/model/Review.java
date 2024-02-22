@@ -21,30 +21,4 @@ public class Review {
     private String name;
     private float price;
 
-    public long getId() {
-        return id;
-    }
-
-    public Review setId(long id) {
-        this.id = id;
-        return this;
-    }
-
-    public String getName() {
-        return name;
-    }
-
-    public Review setName(String name) {
-        this.name = name;
-        return this;
-    }
-
-    public float getPrice() {
-        return price;
-    }
-
-    public Review setPrice(float price) {
-        this.price = price;
-        return this;
-    }
 }

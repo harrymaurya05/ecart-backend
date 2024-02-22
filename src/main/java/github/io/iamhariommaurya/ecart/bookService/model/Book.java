@@ -21,30 +21,5 @@ public class Book {
     private String name;
     private float price;
 
-    public long getId() {
-        return id;
-    }
 
-    public Book setId(long id) {
-        this.id = id;
-        return this;
-    }
-
-    public String getName() {
-        return name;
-    }
-
-    public Book setName(String name) {
-        this.name = name;
-        return this;
-    }
-
-    public float getPrice() {
-        return price;
-    }
-
-    public Book setPrice(float price) {
-        this.price = price;
-        return this;
-    }
 }
