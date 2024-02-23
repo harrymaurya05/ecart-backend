@@ -1,13 +1,13 @@
 package github.io.iamhariommaurya.ecart.autherService.model;
 
-import jakarta.persistence.Entity;
-import jakarta.persistence.GeneratedValue;
-import jakarta.persistence.GenerationType;
-import jakarta.persistence.Id;
+import github.io.iamhariommaurya.ecart.bookService.model.Book;
+import jakarta.persistence.*;
 import lombok.AllArgsConstructor;
 import lombok.Data;
 import lombok.NoArgsConstructor;
 import lombok.ToString;
+
+import java.util.List;
 
 @Data
 @NoArgsConstructor
@@ -20,4 +20,6 @@ public class Author {
     private long id;
     private String name;
     private float price;
+    @OneToMany(mappedBy = "author")
+    private List<Book> books;
 }

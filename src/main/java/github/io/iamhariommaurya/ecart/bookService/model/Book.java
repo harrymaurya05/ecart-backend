@@ -1,9 +1,7 @@
 package github.io.iamhariommaurya.ecart.bookService.model;
 
-import jakarta.persistence.Entity;
-import jakarta.persistence.GeneratedValue;
-import jakarta.persistence.GenerationType;
-import jakarta.persistence.Id;
+import github.io.iamhariommaurya.ecart.autherService.model.Author;
+import jakarta.persistence.*;
 import lombok.AllArgsConstructor;
 import lombok.Data;
 import lombok.NoArgsConstructor;
@@ -20,6 +18,7 @@ public class Book {
     private long id;
     private String name;
     private float price;
-
+    @ManyToOne()
+    private Author authors;
 
 }
