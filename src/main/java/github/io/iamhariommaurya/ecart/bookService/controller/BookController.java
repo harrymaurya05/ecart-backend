@@ -1,12 +1,14 @@
 package github.io.iamhariommaurya.ecart.bookService.controller;
 
 import github.io.iamhariommaurya.ecart.bookService.model.Book;
+import github.io.iamhariommaurya.ecart.bookService.model.BookResponseDTO;
 import github.io.iamhariommaurya.ecart.bookService.service.BookService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
+import java.util.stream.Collectors;
 
 @RestController
 @RequestMapping(value = "/v1/book")
@@ -20,8 +22,11 @@ public class BookController {
     }
     //Get Books
     @GetMapping
-    public ResponseEntity<List<Book>> getBooks(){
-        return ResponseEntity.ok(bookService.getAllBooks());
+    public ResponseEntity<List<BookResponseDTO>> getBooks(){
+        List<Book> books = bookService.getAllBooks();
+        return ResponseEntity.ok(books.stream()
+                .map(Book::toDTO)
+                .collect(Collectors.toList()));
     }
     //Get Book by id
     @GetMapping(value = "/{id}")

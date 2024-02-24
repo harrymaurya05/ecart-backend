@@ -7,6 +7,8 @@ import lombok.Data;
 import lombok.NoArgsConstructor;
 import lombok.ToString;
 
+import java.util.List;
+
 @Data
 @NoArgsConstructor
 @AllArgsConstructor
@@ -18,7 +20,23 @@ public class Book {
     private long id;
     private String name;
     private float price;
-    @ManyToOne()
-    private Author authors;
+
+    @ManyToOne
+    @JoinColumn(name = "author_id") // specify the foreign key column
+    private Author author;
+
+
+    public BookResponseDTO toDTO() {
+        BookResponseDTO dto = new BookResponseDTO();
+        dto.setId(this.id);
+        dto.setName(this.name);
+        dto.setPrice(this.price);
+
+        if (this.author != null) {
+            dto.setAuthorId(this.author.getId());
+        }
+
+        return dto;
+    }
 
 }

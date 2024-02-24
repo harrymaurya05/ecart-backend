@@ -20,6 +20,7 @@ public class Author {
     private long id;
     private String name;
     private float price;
-    @OneToMany(mappedBy = "author")
+
+    @OneToMany(mappedBy = "author", cascade = CascadeType.ALL)
     private List<Book> books;
 }
