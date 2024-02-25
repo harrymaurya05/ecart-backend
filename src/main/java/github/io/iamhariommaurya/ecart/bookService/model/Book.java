@@ -21,8 +21,7 @@ public class Book {
     private String name;
     private float price;
 
-    @ManyToOne
-    @JoinColumn(name = "author_id") // specify the foreign key column
+    @ManyToOne(fetch = FetchType.LAZY)
     private Author author;
 
 

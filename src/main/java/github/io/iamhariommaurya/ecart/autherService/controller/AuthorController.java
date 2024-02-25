@@ -13,29 +13,29 @@ import java.util.List;
 public class AuthorController {
     @Autowired
     AuthorService authorService;
-    //Add Book
+    //Add Author
     @PostMapping
-    public ResponseEntity<Author> saveBook(@RequestBody Author book){
-        return ResponseEntity.ok(authorService.save(book));
+    public ResponseEntity<Author> saveAuthor(@RequestBody Author author){
+        return ResponseEntity.ok(authorService.save(author));
     }
-    //Get Books
+    //Get Authors
     @GetMapping
-    public ResponseEntity<List<Author>> getBooks(){
-        return ResponseEntity.ok(authorService.getAllBooks());
+    public ResponseEntity<List<Author>> getAuthors(){
+        return ResponseEntity.ok(authorService.getAllAuthors());
     }
-    //Get Book by id
+    //Get Author by id
     @GetMapping(value = "/{id}")
-    public ResponseEntity<Author> getBookById(@PathVariable("id") long id){
-        return ResponseEntity.ok(authorService.getBookByid(id));
+    public ResponseEntity<Author> getAuthorById(@PathVariable("id") long id){
+        return ResponseEntity.ok(authorService.getAuthorByid(id));
     }
-    //Update Book
+    //Update Author
     @PutMapping(value = "/{id}")
-    public ResponseEntity<Author> updateBook(@PathVariable("id") long id, @RequestBody Author book){
-        return ResponseEntity.ok(authorService.updateBookById(id,book));
+    public ResponseEntity<Author> updateAuthor(@PathVariable("id") long id, @RequestBody Author Author){
+        return ResponseEntity.ok(authorService.updateAuthorById(id,Author));
     }
-    //Delete Book
+    //Delete Author
     @DeleteMapping(value = "/{id}")
-    public ResponseEntity<String> deleteBookById(@PathVariable("id") long id){
-        return ResponseEntity.ok(authorService.deleteBookByid(id));
+    public ResponseEntity<String> deleteAuthorById(@PathVariable("id") long id){
+        return ResponseEntity.ok(authorService.deleteAuthorByid(id));
     }
 }

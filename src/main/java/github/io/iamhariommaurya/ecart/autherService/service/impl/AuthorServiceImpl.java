@@ -19,31 +19,27 @@ public class AuthorServiceImpl implements AuthorService {
     }
 
     @Override
-    public Author save(Author book) {
-        return authorRepository.save(book);
+    public Author save(Author author) {
+        return authorRepository.save(author);
     }
 
     @Override
-    public List<Author> getAllBooks() {
+    public List<Author> getAllAuthors() {
         return authorRepository.findAll();
     }
 
     @Override
-    public Author getBookByid(long id) {
+    public Author getAuthorByid(long id) {
         Optional<Author> book = authorRepository.findById(id);
         return book.orElse(null);
     }
 
-    @Override
-    public Author updateBookById(long id, Author author) {
+    public Author updateAuthorById(long id, Author author) {
         Optional<Author> book1 = authorRepository.findById(id);
         if(book1.isPresent()){
             Author originalAuthor= book1.get();
             if(Objects.nonNull(author.getName()) && !"".equalsIgnoreCase(author.getName())){
                 originalAuthor.setName(author.getName());
-            }
-            if(Objects.nonNull(author.getPrice()) && author.getPrice() > 0){
-                originalAuthor.setPrice(author.getPrice());
             }
             return authorRepository.save(originalAuthor);
         }
@@ -51,7 +47,7 @@ public class AuthorServiceImpl implements AuthorService {
     }
 
     @Override
-    public String deleteBookByid(long id) {
+    public String deleteAuthorByid(long id) {
         if(authorRepository.findById(id).isPresent()){
             authorRepository.deleteById(id);
             return "Author Removed Successfully!!";
