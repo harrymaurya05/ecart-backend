@@ -20,6 +20,7 @@ public class Author {
     @GeneratedValue(strategy = GenerationType.AUTO)
     private long id;
     private String name;
+
     @OneToMany(mappedBy = "author", cascade = CascadeType.ALL)
     private List<Book> books;
 

@@ -4,8 +4,10 @@ package github.io.iamhariommaurya.ecart.autherService.service.impl;
 import github.io.iamhariommaurya.ecart.autherService.model.Author;
 import github.io.iamhariommaurya.ecart.autherService.repository.AuthorRepository;
 import github.io.iamhariommaurya.ecart.autherService.service.AuthorService;
+import github.io.iamhariommaurya.ecart.bookService.model.Book;
 import org.springframework.stereotype.Service;
 
+import java.util.ArrayList;
 import java.util.List;
 import java.util.Objects;
 import java.util.Optional;
@@ -19,7 +21,22 @@ public class AuthorServiceImpl implements AuthorService {
     }
 
     @Override
-    public Author save(Author author) {
+    public Author save(Author request) {
+        Author author = new Author();
+        author.setName(request.getName());
+
+        List<Book> books = new ArrayList<>();
+        for (Book bookDTO : request.getBooks()) {
+            Book book = new Book();
+            book.setName(bookDTO.getName());
+            book.setPrice(bookDTO.getPrice());
+            book.setAuthor(author); // Set the author on the book
+            books.add(book);
+        }
+
+        author.setBooks(books);
+
+        // Save the author, cascade will save the associated books
         return authorRepository.save(author);
     }
 
