@@ -69,6 +69,6 @@ public class AuthorServiceImpl implements AuthorService {
             authorRepository.deleteById(id);
             return "Author Removed Successfully!!";
         }
-        return "Invalid Author Id!!";
+        return "Wrong Author Id!!";
     }
 }
